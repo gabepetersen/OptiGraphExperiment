@@ -2,8 +2,11 @@
 
 [![Npm publish](https://github.com/episerver/content-delivery-js-sdk/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/episerver/content-delivery-js-sdk/actions/workflows/npm-publish.yml) [![Continuous integration](https://github.com/episerver/content-delivery-js-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/episerver/content-delivery-js-sdk/actions/workflows/ci.yml)
 
-
 This repository contains the source code for the Content Delivery JavaScript SDKs and samples.
+
+## (GABE EDIT) Start Here To Run De-Coupled Site!
+
+[Decoupled README](samples/music-festival-vue-decoupled/README.md)
 
 ## Content Definitions
 

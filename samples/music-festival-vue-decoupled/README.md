@@ -12,20 +12,34 @@ This project uses:
 * Node.js 18+
 * .NET SDK 6+
 * SQL Server 2016 Express LocalDB ([download here](https://www.microsoft.com/en-us/sql-server/sql-server-downloads))
+* (Optional on Windows OS) Docker
 
-## Setup and Run
+
+## BE Setup & Run (Docker)
+
+1. Open terminal for `./backend` and run `docker compose up`
+
+
+## BE Setup & Run (Alternate Windows Flow)
+
+> Note: I have not tested this flow yet so it might have some bugs
 
 1. Run `setup.cmd`. You can re-run `setup.cmd` at any time to reset the backend with a fresh database.
 2. Open terminal for `./backend` and run `dotnet run`.
-    * Navigate to http://localhost:8081/.
-    * Create an admin user. If the UI is not displayed automatically, navigate to http://localhost:8081/util/register.
-    * Now you can access http://localhost:8081/episerver/cms.
-3. Since we reference two NPM modules locally, we need to install them first (this is not needed if you install the modules from npmjs.com).
+
+
+## FE Setup
+
+1. Open the site in browser
+    * Navigate to http://localhost:5000/.
+    * Create an admin user. If the UI is not displayed automatically, navigate to http://localhost:5000/util/register.
+    * Now you can access http://localhost:5000/episerver/cms.
+2. Since we reference two NPM modules locally, we need to install them first (this is not needed if you install the modules from npmjs.com).
     * Open terminal for `../../src/@episerver/content-definitions` and run `npm install` (only needed first run).
     * Open terminal for `../../src/@episerver/content-delivery` and run `npm install` (only needed first run).
-4. Open terminal for `./frontend` and run `npm install` (only needed first run).
+3. Open terminal for `./frontend` and run `npm install` (only needed first run).
     * Run `npm run serve`.
-    * Navigate to http://localhost:8080/.
+    * Navigate to http://localhost:5001/.
 
 ## Notable files
 
