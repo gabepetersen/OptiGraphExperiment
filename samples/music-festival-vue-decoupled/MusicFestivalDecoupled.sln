@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicFestival.Backend", "backend\MusicFestival.Backend.csproj", "{92C1F4EC-FD97-4D27-8393-D0B115196A37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicFestival.Backend", "opti-backend\MusicFestival.Backend.csproj", "{92C1F4EC-FD97-4D27-8393-D0B115196A37}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicFestival.Frontend", "frontend\MusicFestival.Frontend.csproj", "{5EEA19AB-0C94-4A11-8094-C8D707F12F3B}"
 EndProject
