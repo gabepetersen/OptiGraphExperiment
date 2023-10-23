@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-const LandingPage = ({ content }: { content: any }) => {
+const LandingPage = ({ content, countryData }: { content: any, countryData: any }) => {
     const siteUrl = content?.Url?.substring(0, content?.Url.length - 1 - (content?.RelativePath?.length ?? 0)) ?? '';
 
     return (
@@ -17,6 +17,15 @@ const LandingPage = ({ content }: { content: any }) => {
                 </div>
                 <div className="card-body">
                     {content?.BuyTicketBlock?.Message}
+                </div>
+            </div>
+
+            <div className="card text-dark bg-light mb-3">
+                <div className="card-header">
+                    Hosted in {countryData?.country?.capital}, {countryData?.country?.name}
+                </div>
+                <div className="card-body">
+                    Cost: 100 {countryData?.country?.currency}
                 </div>
             </div>
 
