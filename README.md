@@ -4,9 +4,10 @@
 
 This repository contains the source code for the Content Delivery JavaScript SDKs and samples.
 
-## (GABE EDIT) Start Here To Run De-Coupled Site!
+## (GABE EDIT) Start Here To Run De-Coupled Sites!
 
-[Decoupled README](samples/music-festival-vue-decoupled/README.md)
+- [OptiGraph Example FE](samples/music-festival-vue-decoupled/graph-frontend/README.md)
+- [Decoupled BE/FE](samples/music-festival-vue-decoupled/README.md)
 
 ## Content Definitions
 
