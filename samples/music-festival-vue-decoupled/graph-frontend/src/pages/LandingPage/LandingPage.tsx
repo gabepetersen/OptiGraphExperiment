@@ -4,7 +4,7 @@ const LandingPage = ({ content, countryData }: { content: any, countryData: any 
     const siteUrl = content?.Url?.substring(0, content?.Url.length - 1 - (content?.RelativePath?.length ?? 0)) ?? '';
 
     return (
-        <div className="row">
+        <main className="landing-page flow">
             <figure className="figure">
                 <img src={siteUrl + content?.HeroImage ?? ''} className="figure-img img-fluid rounded" alt={content?.Title ?? ''} />
                 <figcaption className="figure-caption">{content?.Title}</figcaption>
@@ -92,7 +92,7 @@ const LandingPage = ({ content, countryData }: { content: any, countryData: any 
                     </div>
                 )
             })}
-        </div>
+        </main>
     )
 }
 

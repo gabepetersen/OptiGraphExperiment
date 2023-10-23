@@ -1,8 +1,10 @@
+import styles from './header.module.scss';
+
 const Header = () => {
     return (
         <header>
-            <nav className="navigation">
-                <ul>
+            <nav className={styles.navigation}>
+                <ul className={styles.navigation__list}>
                     <li>
                         <a href='/en'>Home</a>
                     </li>

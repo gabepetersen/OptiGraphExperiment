@@ -1,9 +1,8 @@
-import './App.css';
+import './scss/main.scss';
 import { Locales, useStartQuery } from './generated';
 import { useCountryTestQuery } from './country-generated';
-import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/header';
-import LandingPage from './pages/LandingPage';
+import LandingPage from './pages/LandingPage/LandingPage';
 import ArtistContainerPage from './pages/ArtistContainerPage';
 import ArtistDetailsPage from './pages/ArtistDetailsPage';
 
@@ -28,7 +27,7 @@ const App = () => {
 
   if (data) {
     return (
-      <div className="App">
+      <>
         <Header/>
 
         {
@@ -52,7 +51,7 @@ const App = () => {
             }
           })
         }
-      </div>
+      </>
     );
   }
 

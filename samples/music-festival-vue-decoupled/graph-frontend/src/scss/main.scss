@@ -1,0 +1,16 @@
+@use "sass:meta";
+
+@layer reset, base, utilities;
+
+@layer reset {
+    @include meta.load-css('base/reset');
+}
+
+@layer base {
+    @include meta.load-css('abstracts/css-properties');
+    @include meta.load-css('base/base');
+}
+
+@layer utilities {
+    @include meta.load-css('util/spacing');
+}
