@@ -16,4 +16,4 @@ Run `yarn storybook` or `npm run storybook`
 
 ## Generating new GraphQL Schemas
 
-If you edit `codegen.ts`, ensure you run `yarn generate` or `npm run generate`.
+If you edit `codegen.ts` or add new `.graphql` files, ensure you run `yarn generate` or `npm run generate`.

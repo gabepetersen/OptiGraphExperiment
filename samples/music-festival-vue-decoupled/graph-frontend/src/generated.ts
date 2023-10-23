@@ -3326,6 +3326,24 @@ export enum SynonymSlot {
   Two = 'TWO'
 }
 
+export type ArtistSearchQueryVariables = Exact<{
+  searchParam?: InputMaybe<Scalars['String']>;
+  locales: Locales;
+  order?: InputMaybe<OrderBy>;
+}>;
+
+
+export type ArtistSearchQuery = { __typename?: 'Query', ArtistDetailsPage?: { __typename?: 'ArtistDetailsPageOutput', items?: Array<{ __typename?: 'ArtistDetailsPage', PerformanceStartTime?: any | null, PerformanceEndTime?: any | null, StageName?: string | null, ArtistName?: string | null, ArtistPhoto?: string | null, ArtistGenre?: string | null, ArtistDescription?: string | null, ArtistIsHeadliner?: any | null, RelativePath?: string | null, _fulltext?: Array<string | null> | null, ParentLink?: { __typename?: 'ContentModelReference', Url?: string | null } | null } | null> | null } | null };
+
+export type OtherContentSearchQueryVariables = Exact<{
+  searchParam?: InputMaybe<Scalars['String']>;
+  locales: Locales;
+  order?: InputMaybe<OrderBy>;
+}>;
+
+
+export type OtherContentSearchQuery = { __typename?: 'Query', Content?: { __typename?: 'ContentOutput', items?: Array<{ __typename?: 'ArtistContainerPage', Name?: string | null, RelativePath?: string | null, _fulltext?: Array<string | null> | null, ContentType?: Array<string | null> | null, ParentLink?: { __typename?: 'ContentModelReference', Url?: string | null } | null } | { __typename?: 'ArtistDetailsPage', Name?: string | null, RelativePath?: string | null, _fulltext?: Array<string | null> | null, ContentType?: Array<string | null> | null, ParentLink?: { __typename?: 'ContentModelReference', Url?: string | null } | null } | { __typename?: 'BuyTicketBlock', Name?: string | null, RelativePath?: string | null, _fulltext?: Array<string | null> | null, ContentType?: Array<string | null> | null, ParentLink?: { __typename?: 'ContentModelReference', Url?: string | null } | null } | { __typename?: 'Content', Name?: string | null, RelativePath?: string | null, _fulltext?: Array<string | null> | null, ContentType?: Array<string | null> | null, ParentLink?: { __typename?: 'ContentModelReference', Url?: string | null } | null } | { __typename?: 'ContentBlock', Name?: string | null, RelativePath?: string | null, _fulltext?: Array<string | null> | null, ContentType?: Array<string | null> | null, ParentLink?: { __typename?: 'ContentModelReference', Url?: string | null } | null } | { __typename?: 'ImageFile', Name?: string | null, RelativePath?: string | null, _fulltext?: Array<string | null> | null, ContentType?: Array<string | null> | null, ParentLink?: { __typename?: 'ContentModelReference', Url?: string | null } | null } | { __typename?: 'LandingPage', Name?: string | null, RelativePath?: string | null, _fulltext?: Array<string | null> | null, ContentType?: Array<string | null> | null, ParentLink?: { __typename?: 'ContentModelReference', Url?: string | null } | null } | null> | null } | null };
+
 export type StartQueryVariables = Exact<{
   relativePath?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
@@ -3436,6 +3454,74 @@ export const LandingPageFragmentDoc = `
 }
     ${LandingPageBlockDataFragmentDoc}
 ${ItemsInContentAreaFragmentDoc}`;
+export const ArtistSearchDocument = `
+    query ArtistSearch($searchParam: String, $locales: Locales!, $order: OrderBy) {
+  ArtistDetailsPage(
+    locale: [$locales]
+    orderBy: {_ranking: RELEVANCE, ArtistName: $order}
+    where: {_or: [{Name: {contains: $searchParam, boost: 10}}, {Name: {startsWith: $searchParam, boost: 10}}, {StageName: {startsWith: $searchParam}}]}
+  ) {
+    items {
+      PerformanceStartTime
+      PerformanceEndTime
+      StageName
+      ArtistName
+      ArtistPhoto
+      ArtistGenre
+      ArtistDescription
+      ArtistIsHeadliner
+      RelativePath
+      ParentLink {
+        Url
+      }
+      _fulltext
+    }
+  }
+}
+    `;
+export const useArtistSearchQuery = <
+      TData = ArtistSearchQuery,
+      TError = unknown
+    >(
+      variables: ArtistSearchQueryVariables,
+      options?: UseQueryOptions<ArtistSearchQuery, TError, TData>
+    ) =>
+    useQuery<ArtistSearchQuery, TError, TData>(
+      ['ArtistSearch', variables],
+      fetcher<ArtistSearchQuery, ArtistSearchQueryVariables>(ArtistSearchDocument, variables),
+      options
+    );
+export const OtherContentSearchDocument = `
+    query OtherContentSearch($searchParam: String, $locales: Locales!, $order: OrderBy) {
+  Content(
+    locale: [$locales]
+    orderBy: {_ranking: RELEVANCE, Name: $order}
+    where: {_or: [{Name: {contains: $searchParam, boost: 10}}, {Name: {startsWith: $searchParam, boost: 10}}], _and: {ContentType: {notEq: "ArtistDetailsPage"}}}
+  ) {
+    items {
+      Name
+      RelativePath
+      ParentLink {
+        Url
+      }
+      _fulltext
+      ContentType
+    }
+  }
+}
+    `;
+export const useOtherContentSearchQuery = <
+      TData = OtherContentSearchQuery,
+      TError = unknown
+    >(
+      variables: OtherContentSearchQueryVariables,
+      options?: UseQueryOptions<OtherContentSearchQuery, TError, TData>
+    ) =>
+    useQuery<OtherContentSearchQuery, TError, TData>(
+      ['OtherContentSearch', variables],
+      fetcher<OtherContentSearchQuery, OtherContentSearchQueryVariables>(OtherContentSearchDocument, variables),
+      options
+    );
 export const StartDocument = `
     query Start($relativePath: String, $locale: [Locales] = en, $stageName: String, $artistGenre: String) {
   Content(locale: $locale, where: {RelativePath: {eq: $relativePath}}, limit: 1) {

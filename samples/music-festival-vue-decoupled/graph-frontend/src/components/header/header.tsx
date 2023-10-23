@@ -1,4 +1,6 @@
-import styles from './header.module.scss';
+import SearchButton from '../SearchButton/SearchButton';
+
+import styles from './Header.module.scss';
 
 export interface HeaderProps {
     enableWideButtons?: boolean
@@ -17,6 +19,9 @@ const Header = ({ enableWideButtons }: HeaderProps) => {
                     </li>
                 </ul>
             </nav>
+            <div className="nav-table-cell search-button-block">
+                <SearchButton />
+            </div>
         </header>
     )
 }
