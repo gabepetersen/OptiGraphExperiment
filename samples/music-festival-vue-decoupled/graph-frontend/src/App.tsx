@@ -1,7 +1,7 @@
 import './scss/main.scss';
 import { Locales, useStartQuery } from './generated';
 import { useCountryTestQuery } from './country-generated';
-import Header from './components/header';
+import Header from './components/header/header';
 import LandingPage from './pages/LandingPage/LandingPage';
 import ArtistContainerPage from './pages/ArtistContainerPage';
 import ArtistDetailsPage from './pages/ArtistDetailsPage';

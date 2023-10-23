@@ -1,0 +1,25 @@
+@use '../../scss/abstracts/variables' as *;
+
+.navigation {
+    padding: 30px 20px;
+}
+
+.navigation__list {
+    display: flex;
+    gap: 1em;
+    list-style: none;
+}
+
+.navigation__listItem {
+    display: block;
+}
+
+.navigation__link {
+    display: block;
+    padding: 20px 15px;
+    border: 1px dashed $brunswickGreen;
+
+    .header__wideButtons & {
+        padding: 20px 45px;
+    }
+}

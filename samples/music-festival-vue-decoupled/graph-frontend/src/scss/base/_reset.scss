@@ -28,6 +28,14 @@ ol[role='list'] {
   list-style: none;
 }
 
+/* Reset default margin/padding on lists */
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+}
+
 /* Set core body defaults */
 body {
   min-height: 100vh;
